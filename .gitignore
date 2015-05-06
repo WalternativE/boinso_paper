@@ -124,3 +124,6 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+# don't want the subfiles in my repo
+Chap_Introduction.pdf
