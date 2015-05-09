@@ -1,0 +1,21 @@
+# if you change your database backend you don't need this driver
+psycopg2==2.6
+
+# for the safest timezone support install this package
+pytz==2014.10
+
+Django==1.7.5
+djangorestframework==3.0.5
+django-oauth-toolkit==0.7.2
+
+
+# for enabling CORS-Headers (used when AJAX calls are fired from another domain)
+django-cors-headers==1.0.0
+
+# this package is exclusively for testing ssl
+# never use the django devel server or the django ssl server for production!
+django-sslserver==0.14
+
+# for building docu only
+sphinx
+sphinx_rtd_theme

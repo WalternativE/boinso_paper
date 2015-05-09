@@ -220,13 +220,13 @@
 %
 
 \subfile{Chap_Introduction}
-\subfile{Chap_MaterialMethods}
+\subfile{Chap_Materials}
 
 %
 % Hier beginnen die Verzeichnisse.
 %
 \clearpage
-\ifthenelse{\equal{\FHTWCitationType}{HARVARD}}{}{\bibliographystyle{gerabbrv}}
+\ifthenelse{\equal{\FHTWCitationType}{HARVARD}}{}{\bibliographystyle{IEEEtran}}
 \bibliography{Literatur}
 \clearpage
 
@@ -246,9 +246,6 @@
 \addcontentsline{toc}{chapter}{\listacroname}
 \chapter*{\listacroname}
 \begin{acronym}[XXXXX]
-   %\acro{ABC}[ABC]{Alphabet}
-   %\acro{WWW}[WWW]{world wide web}
-   %\acro{ROFL}[ROFL]{Rolling on floor laughing}
    \IfFileExists{Acro_sorted}{\input{Acro_sorted}}{\input{Acro}}
 \end{acronym}
 
