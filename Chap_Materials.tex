@@ -79,6 +79,17 @@ The controller reacts to signals set by the user, manipulates the state of a mod
 \lstinputlisting[language=Python, caption={BOINSO Core Web Application UserProfileProxy}, label=lst:boinso_views, firstline=75, lastline=93]{listings/views.py}
 
 \subsection{Nginx}
+Nginx is an open source reverse proxy for protocols for web and mail protocols, as well as a load balancer, cache and a web server. It is available for all major operating systems, easy to deploy and easy to configure. In the context of a deployed Django application Nginx is used to tunnel requests to the application's \ac{WSGI} server, to serve static content (images, style sheets, etc.) and to cache non dynamic content. An example for a production configuration file for a Django application using Nginx can be seen in listing \ref{lst:nginx}.\\
+
+\lstinputlisting[caption={Nginx configuration file example. Virtual host is instructed to listen to port 8000 while limiting the maximum body size to 20 megabyte. Requests directed at the virtual host are forwarded to the local application server including the original headers. A static file request is handled by Nginx.}, label=lst:nginx]{listings/nginx.conf}
+
+\subsection{Gunicorn}
+Gunicorn is a Python \ac{WSGI} server implemented adhering to the \ac{WSGI} definition postulated in \cite{pep_0333}. As the integrated Django development server is well suited for testing and developing but it is not suited for a production environment due to stability and security implications deployment the usage of a well established solution such as Gunicorn or uWSGI. In cases where the production environment cannot sustain aforementioned solutions (as on Windows server machines) or whenever it is simply not desired to use an additional third party solution there are also modules for the popular Apache Web Server (\ac{BSD} httpd) or the \ac{IIS}.\\
+
+Gunicorn is normally installed as a Python module in a virtual environment. This means that there is normally no native operating system hook which starts, restarts and monitors the server processes. In a Python environment a service which can be used to keep the server alive is called supervisord. With a simple configuration file like the one in listing \ref{lst:supervisord} supervisord can handle the server life-cycle, restarting failed and zombie processes. The configuration execution itself can be handed to the operating system via the system initiator daemon (on Unix systems mostly initd, systemd or upstartd).\\
+
+\lstinputlisting[caption={Supervisord configuration file.}, label=lst:supervisord]{listings/supervisord.conf}
+
 
 
 \end{document}
