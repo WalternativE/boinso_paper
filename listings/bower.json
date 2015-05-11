@@ -1,0 +1,26 @@
+{
+  "name": "BOINSO_MCC_WEB_CLIENT",
+  "version": "0.0.1",
+  "homepage": "https://github.com/WalternativE/BOINSO_MCC_WEB_CLIENT",
+  "authors": [
+    "WalternativE <gregor@beyerle.at>"
+  ],
+  "description": "BOINSO MCC Management WebApp",
+  "keywords": [
+    "BOINSO MCC Client"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "app/components/"
+  ],
+  "dependencies": {
+    "a0-angular-storage": "~0.0.10",
+    "angular-bootstrap": "~0.12.1",
+    "angular-ui-router": "~0.2.13"
+  },
+  "license": "Apache 2.0"
+}

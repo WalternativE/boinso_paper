@@ -1,0 +1,34 @@
+{
+  "name": "BOINSO_MCC_WEB_CLIENT",
+  "version": "1.0.0",
+  "description": "A web based client for mission control communication and administration",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WalternativE/BOINSO-MCC-Web-Client.git"
+  },
+  "keywords": [
+    "BOINSO"
+  ],
+  "author": "Gregor Beyerle",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/WalternativE/BOINSO-MCC-Web-Client/issues"
+  },
+  "homepage": "https://github.com/WalternativE/BOINSO-MCC-Web-Client",
+  "dependencies": {
+      "bootstrap-styl": "latest",
+      "angular": "latest"
+  },
+  "devDependencies": {
+      "stylus": "latest",
+      "typographic": "latest",
+      "nib": "latest",
+      "uglify-js": "latest"
+  },
+  "scripts": {
+      "build:css": "stylus -u nib -u typographic app/styles/main.styl",
+      "watch:css": "stylus -u nib -u typographic -w app/styles/main.styl",
+      "build:js": "uglifyjs --compress --mangle -- app/js/main.js > app/js/main.min.js",
+      "build": "npm run build:css"
+  }
+}

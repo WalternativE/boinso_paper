@@ -15,12 +15,15 @@ The challenges posed by the difficult monitoring of small satellites orbiting in
 In the following chapters the reader is going to be presented with an outline of the tools and materials used to achieve this goal, the structure of the different applications written for this task as well as details about their implementation. Finally there will be a recapitulation of challenges which arose during the work on the project and an outlook on future developments.
 
 \section{BOINSO Core Web Application}
+\label{sec:intro_boinso_core}
 The BOINSO Core Web Application is the main entry point for \ac{MCC} administrators for maintaining the data related to their managed satellites. Besides the administrative interface the Core Web Application offers an \ac{API} accessible via \ac{REST} calls. An additional part of the Core Application is an OAuth2 provider which is used to authenticate users with a \ac{MCC}.
 
 \section{BOINSO MCC Web Client}
+\label{sec:intro_boinso_web}
 The BOINSO MCC Web Client is a HTML5/JavaScript sample implementation of a custom BOINSO client. It offers \acp{GCC} the possibility to register with a \ac{MCC}, manually download \ac{TLE} files, administer their profile data and their tracking data.
 
 \section{BOINSO GPredict Bridge}
+\label{sec:intro_boinso_bridge}
 The BOINSO GPredict Bridge is a piece of middle-ware distributed as a python module. It is used to pull updates of satellite data from the \acp{MCC} to their affiliated \acp{GCC} and in return automatically upload tracking data to the BOINSO Core Web Application of the satellites owner using the client \ac{API}.
 
 \end{document}
