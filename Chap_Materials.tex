@@ -66,17 +66,19 @@ Django is one of the major Python web frameworks. It is backed by a very committ
 
 Django can be used to its full potential when working on data driven dynamic web applications. To give developers granular control of application functionality and to enforce a maintainable code base the framework makes extensive use of the \ac{MVC} pattern. Figure \ref{fig:MVC} shows the typical collaborative processes between the different \ac{MVC} components.
 
+\clearpage
+
 \begin{figure}[!htbp]
 %\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\linewidth]{PICs/BacPics/MVC-Process.png}
-\caption{Typcial collaboration of MVC components}\label{fig:MVC}
+\caption{Typcial collaboration of MVC components \url{http://commons.wikimedia.org/wiki/File:MVC-Process.svg} Last acces: 09.05.2015}\label{fig:MVC}
 \end{figure}
+
+\lstinputlisting[language=Python, caption={BOINSO Core Web Application satellite model}, label=lst:boinso_models, firstline=22, lastline=59]{listings/models.py}
 
 \minisec{Model}
 The model is the programmatic representation of an entity. The \ac{ORM} implementation maps the different data members of the model class to a table in the databases and casts the fields to the related database vendor type implementations. An example for a simple model implementation can be seen in listing \ref{lst:boinso_models}. Besides the correct mapping to the data base the field types also allow the usage of validation chains which throw errors if input values violate input constraints.\\
-
-\lstinputlisting[language=Python, caption={BOINSO Core Web Application satellite model}, label=lst:boinso_models, firstline=22, lastline=59]{listings/models.py}
 
 \minisec{View}
 The view is the layer in which data is presented to clients who can interact with it without having knowledge of the underlying logic. In classical Django applications a view is called a template and rendered to a \ac{HTML} document presented to a web browser. The BOINSO Core Web Application makes use of the Django \ac{REST} Framework where a serializer is used instead of a template. Listing \ref{lst:boinso_serializers} shows the serializer related to the satellite model shown in listing \ref{lst:boinso_models} extending a model serializer provided by the Django \ac{REST} Framework which provides resource identification and resource location by \ac{URL} fields catering to the \ac{HATEOAS} principle introduced in \cite{Fielding_2000}.\\

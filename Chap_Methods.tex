@@ -40,7 +40,7 @@ Table \ref{tab:web_api_spec} shows the different \ac{API} endpoints which were i
 	\centering
 	\begin{tabular}{| l | l | p{3.5cm} | l | l |}
 		\hline
-		Method & Endpoint & Usage & Returns & Auth \\ \hline
+		\textbf{Method} & \textbf{Endpoint} & \textbf{Usage} & \textbf{Returns} & \textbf{Auth} \\ \hline
 		POST & \url{/api/sign_up/} & Sign up new \ac{GCC} & OAuth2 credentials & None \\ \hline
 		GET & \url{/api/login/} & Retrieve registered \ac{GCC} & OAuth2 credentials & HTTP Basic \\ \hline
 		GET & \url{/api/satellites/} & Retrieves list of available satellites & Array of satellites & None \\ \hline
@@ -78,6 +78,15 @@ In AngularJS this behavior could be implemented by using \ac{HTTP} interceptor c
 
 \lstinputlisting[language=JavaScript, caption={Example for a HTTP interceptor reacting to HTTP 401 messages redirecting the user to a log-in overlay.}, label=lst:http_interceptor, firstline=34, lastline=55]{listings/config.js}
 
-\section
+\section{BOINSO GPredict Bridge}
+\label{sec:methods_boinso_bridge}
+
+The BOINSO GPredict Bridge was build as a small functional piece of middleware connecting the BOINSO Core Web Application with the user's \ac{GCC} client machine. Private radio enthusiasts tend to invest a lot of time in their -- quite expensive -- observation set-ups. The machine controlling the hardware (radio rig, rotator controller and eventually additional peripherals) are optimized for maximal stability which makes their maintainers very skeptical of new components. Considering the module had to be easy to install, update and use as well as being very portable (supporting even Windows XP machines had to be considered) the application was written in pure Python with only few and rather common dependencies (like the formidable requests module).\\
+
+As the idea behind the module was to introduce satellite tracking automation it was constructed that -- if configured correctly -- can be run autonomously via Unix cron jobs or Windows services. The configuration is generated in the users home directory (as for instance a vim.rc file would be) and contains the user information, the root \acp{URL} of the affiliated \acp{MCC} as well as related health and skip flags. The configuration are written as valid \ac{JSON} files otherwise the configuration parsing fails.\\
+
+It was the projects goal to produce a python package that is not only a collection of scripts but rather a piece of software that can be distributed to the \ac{PyPI} allowing users to use management tools like the in subsection \ref{subsec:mat_pip} mentioned pip. To reach this goal a setup file as seen in listing \ref{lst:setup.py} was included to the project root.\\
+
+\lstinputlisting[language=Python, caption={Setup script for Python package}, label=lst:setup.py]{listings/setup.py}
 
 \end{document}
