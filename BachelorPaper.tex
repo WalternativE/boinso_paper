@@ -68,6 +68,9 @@
 %Aufteilen in mehrere Dateien
 \usepackage{subfiles}
 
+% for including other pdf files in appendix
+\usepackage{pdfpages}
+
 % my own listing definitions ---------------------------------------------------------------
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
@@ -255,11 +258,13 @@
 \begin{acronym}[XXXXX]
    \IfFileExists{Acro_sorted}{\input{Acro_sorted}}{\input{Acro}}
 \end{acronym}
+\clearpage
 
 
 %
 % Hier beginnt der Anhang.
 %
 \appendix
+\subfile{BOINSO_doc_appendix}
 
 \end{document}
